@@ -4,4 +4,4 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import About from './About';
+import Game from './Game';
