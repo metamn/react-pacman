@@ -33,12 +33,12 @@ const Rows = styled.div`
 const Column = styled.div`
 	width: calc(${props => props.width} / ${props => props.columns});
 	height: 100%;
-	border-right: 1px solid;
+	border-right: 1px solid white;
 `;
 
 const Row = styled.div`
-	height: calc(${props => props.height} / ${props => props.columns});
-	border-bottom: 1px solid;
+	height: calc(${props => props.height} / ${props => props.rows});
+	border-bottom: 1px solid white;
 `;
 
 /**
@@ -50,16 +50,16 @@ export default class Grid extends React.Component {
 		const columns = this.props.columns;
 
 		return (
-			<Column key={i} width={width} columns={columns}/>
+			<Column className="column" key={i} width={width} columns={columns}/>
 		);
 	}
 
 	renderRow(j) {
 		const height = this.props.height;
-		const columns = this.props.columns;
+		const rows = this.props.rows;
 
 		return (
-			<Row key={j} height={height} columns={columns}/>
+			<Row className="row" key={j} height={height} rows={rows}/>
 		);
 	}
 
@@ -70,13 +70,13 @@ export default class Grid extends React.Component {
 		const rows = this.props.rows;
 
 		return (
-			<Container width={width} height={height}>
-				<Columns>
+			<Container className="grid" width={width} height={height}>
+				<Columns className="columns">
 					<Repeat numberOfTimes={columns} startAt={1}>
 						{(i) => this.renderColumn(i)}
 					</Repeat>
 				</Columns>
-				<Rows>
+				<Rows className="rows">
 					<Repeat numberOfTimes={rows} startAt={1}>
 						{(j) => this.renderRow(j)}
 					</Repeat>

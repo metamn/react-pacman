@@ -13,7 +13,7 @@ const Container = styled.section`
 	width: ${props => props.width};
 	height: ${props => props.height};
 	overflow: hidden;
-	background-color: lightgray;
+	background-color: lightsteelblue;
 `;
 
 /**
@@ -34,7 +34,7 @@ export default class Surface extends React.Component {
 		}
 
 		return (
-			<Container
+			<Container className="surface"
 				width={width}
 				height={height}
 				>
