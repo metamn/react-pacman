@@ -2,35 +2,53 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
+import ElementList from './../ElementList';
+
 /**
- * The Surface container
+ * The main container
  *
  */
 const Container = styled.section`
 	width: ${props => props.width};
 	height: ${props => props.height};
+	overflow: hidden;
+	background-color: lightgray;
 `;
 
 /**
  * The main class
  */
 export default class Surface extends React.Component {
-	constructor(props) {
-		super(props);
+	calculateElementWidth() {
+		return '1vw';
+	}
 
-		this.state = {
-			width: this.props.surface.width || '100%',
-			height: this.props.surface.height || '100%',
-		}
+	calculateElementHeight() {
+		return '1vh';
 	}
 
 	render() {
-		const width = this.state.width;
-		const height = this.state.height;
+		const width = this.props.width;
+		const height = this.props.height;
+		const type = this.props.type;
+		const numberOfElements = this.props.numberOfElements;
+		const element = {
+			type: this.props.elementType,
+			value: this.props.elementValue,
+			width: this.calculateElementWidth(),
+			height: this.calculateElementHeight(),
+		}
 
 		return (
-			<Container width={width} height={height}>
-				{this.props.children}
+			<Container
+				width={width}
+				height={height}
+				>
+				<ElementList
+					type={type}
+					numberOfElements={numberOfElements}
+					element={element}
+				/>
 			</Container>
 		)
 	}
