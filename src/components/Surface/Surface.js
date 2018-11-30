@@ -20,14 +20,6 @@ const Container = styled.section`
  * The main class
  */
 export default class Surface extends React.Component {
-	calculateElementWidth() {
-		return '1vw';
-	}
-
-	calculateElementHeight() {
-		return '1vh';
-	}
-
 	render() {
 		const width = this.props.width;
 		const height = this.props.height;
@@ -37,8 +29,8 @@ export default class Surface extends React.Component {
 		const element = {
 			type: this.props.elementType,
 			value: this.props.elementValue,
-			width: this.calculateElementWidth(),
-			height: this.calculateElementHeight(),
+			width: this.props.width,
+			height: this.props.height,
 		}
 
 		return (

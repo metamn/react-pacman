@@ -31,13 +31,13 @@ const Rows = styled.div`
 `;
 
 const Column = styled.div`
-	width: 1vw;
+	width: calc(${props => props.width} / ${props => props.columns});
 	height: 100%;
 	border-right: 1px solid;
 `;
 
 const Row = styled.div`
-	height: 1vh;
+	height: calc(${props => props.height} / ${props => props.columns});
 	border-bottom: 1px solid;
 `;
 
@@ -46,14 +46,20 @@ const Row = styled.div`
  */
 export default class Grid extends React.Component {
 	renderColumn(i) {
+		const width = this.props.width;
+		const columns = this.props.columns;
+
 		return (
-			<Column key={i} width={this.props.width} columns={this.props.columns}/>
+			<Column key={i} width={width} columns={columns}/>
 		);
 	}
 
 	renderRow(j) {
+		const height = this.props.height;
+		const columns = this.props.columns;
+
 		return (
-			<Row key={j}/>
+			<Row key={j} height={height} columns={columns}/>
 		);
 	}
 
