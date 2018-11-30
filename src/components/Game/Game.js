@@ -12,8 +12,8 @@ export default class Game extends React.Component {
 		super(props);
 
 		this.state = {
-			width: '10vw',
-			height: '10vh',
+			width: '90vw',
+			height: '90vh',
 			type: 'matrix',
 			numberOfElements: 3,
 			elementType: 'char',
