@@ -12,9 +12,9 @@ import CellList from './../CellList';
 const Container = styled.section`
 	width: ${props => props.width};
 	height: ${props => props.height};
-	position: relative;
-	overflow: hidden;
-	//background-color: lightsteelblue;
+	position: absolute;
+	top: 0;
+	left: 0;
 `;
 
 /**
@@ -22,13 +22,14 @@ const Container = styled.section`
  */
 export default class Surface extends React.Component {
 	render() {
+		const name = this.props.name || 'surface';
 		const width = this.props.width;
 		const height = this.props.height;
 		const grid = this.props.grid;
 		const cellList = this.props.cellList;
 
 		return (
-			<Container className="surface"
+			<Container className={name}
 				width={width}
 				height={height}
 				>

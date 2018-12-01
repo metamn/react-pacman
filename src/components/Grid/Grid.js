@@ -52,18 +52,20 @@ export default class Grid extends React.Component {
 	renderColumn(i) {
 		const width = this.props.width;
 		const columns = this.props.columns;
+		const name = `column column-${i}`;
 
 		return (
-			<Column className="column" key={i} width={width} columns={columns}/>
+			<Column className={name} key={i} width={width} columns={columns}/>
 		);
 	}
 
 	renderRow(j) {
 		const height = this.props.height;
 		const rows = this.props.rows;
+		const name = `row row-${j}`;
 
 		return (
-			<Row className="row" key={j} height={height} rows={rows}/>
+			<Row className={name} key={j} height={height} rows={rows}/>
 		);
 	}
 

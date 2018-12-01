@@ -14,8 +14,7 @@ const Container=styled.div`
 	min-height: 100vh;
 	min-width: 100vw;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	flex-wrap: wrap;
 `;
 
 /**
@@ -28,8 +27,8 @@ export default class Game extends React.Component {
 		this.state = {
 			width: '100vw',
 			height: '100vh',
-			grid: { columns: 5, rows: 5 },
-			cellList: {
+			grid: { columns: 15, rows: 15 },
+			cellList1: {
 				columns: 10,
 				rows: 10,
 				content: [
@@ -54,6 +53,32 @@ export default class Game extends React.Component {
 						text: 'e',
 					},
 				],
+			},
+			cellList2: {
+				columns: 30,
+				rows: 30,
+				content: [
+					{
+						column: 5,
+						row: 13,
+						text: 'Investing / trading',
+					},
+					{
+						column: 5,
+						row: 15,
+						text: 'is the highest stakes',
+					},
+					{
+						column: 5,
+						row: 17,
+						text: 'game in the world',
+					},
+					{
+						column: 5,
+						row: 28,
+						text: 'Select your player',
+					},
+				],
 			}
 		}
 	}
@@ -62,15 +87,24 @@ export default class Game extends React.Component {
 		const width = this.state.width;
 		const height = this.state.height;
 		const grid = this.state.grid;
-		const cellList = this.state.cellList;
+		const cellList1 = this.state.cellList1;
+		const cellList2 = this.state.cellList2;
 
 		return (
 			<Container className="game">
 				<Surface
-					width={width}
-					height={height}
-					grid={grid}
-					cellList={cellList}
+					name = 'surface-1'
+					width = {width}
+					height = {height}
+					grid = {grid}
+					cellList = {cellList1}
+				/>
+				<Surface
+					name = 'surface-2'
+					width = {width}
+					height = {height}
+					grid = {grid}
+					cellList = {cellList2}
 				/>
 			</Container>
 		)
