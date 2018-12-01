@@ -1,7 +1,6 @@
 .surface-1 {
 	.cell {
 		&.has-content {
-			font-size: 1vmax;
 			text-transform: uppercase;
 			display: flex;
 			justify-content: center;
@@ -9,17 +8,18 @@
 		}
 
 		&.text-1 {
-			background-color: lightyellow;
+			font-size: 4vmax;
 		}
 
 		&.text-2 {
-			background-color: white;
+			font-size: 4vmax;
+			//color: lightyellow;
 		}
 	}
 
 	@for $i from 1 to 16 {
 		.row-#{$i} {
-			background-color: darken(aliceblue, $i * 1%);
+			//background-color: darken(aliceblue, $i * 1%);
 		}
 	}
 }
