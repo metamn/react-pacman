@@ -21,8 +21,17 @@ const Container = styled.section`
 const Cell = styled.div`
 	width: calc(${props => props.width} / ${props => props.columns});
 	height: calc(${props => props.height} / ${props => props.rows});
-	border: 1px solid;
+	//border: 1px solid;
 	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 3em;
+
+	&.has-content {
+		border-left: 1px solid;
+		border-radius: 50%;
+	}
 `;
 
 
@@ -30,14 +39,30 @@ const Cell = styled.div`
  * The main class
  */
 export default class CellList extends React.Component {
+	getCellContent(i,j,contents) {
+		if (!contents) return;
+
+		let content = contents.filter(c => (c.row == i && j >= c.column));
+		if (!content) return;
+		if (!content[0]) return;
+
+		let c = content[0];
+		let k = c.column;
+		if (c.text[j-k]) return c.text[j-k];
+	}
+
 	renderCell(i,j) {
 		const width = this.props.width;
 		const height = this.props.height;
-		const columns = this.props.columns;
-		const rows = this.props.rows;
+
+		const cellList = this.props.cellList;
+		const columns = cellList.columns;
+		const rows = cellList.rows;
 
 		const index = (i-1)*columns + j;
-		const className = `cell-${index}`;
+		const cellContent = this.getCellContent(i, j, cellList.content);
+		let className = `cell-${index}`;
+		if (cellContent) className += ' has-content';
 
 		return (
 			<Cell
@@ -47,7 +72,9 @@ export default class CellList extends React.Component {
 				height={height}
 				columns={columns}
 				rows={rows}
-				/>
+				>
+				{cellContent}
+			</Cell>
 		)
 	}
 
@@ -55,8 +82,10 @@ export default class CellList extends React.Component {
 		const name = this.props.name || 'cell-list';
 		const width = this.props.width;
 		const height = this.props.height;
-		const columns = this.props.columns;
-		const rows = this.props.rows;
+
+		const cellList = this.props.cellList;
+		const columns = cellList.columns;
+		const rows = cellList.rows;
 
 		return (
 			<Container className={name} width={width} height={height}>

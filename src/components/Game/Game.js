@@ -8,6 +8,7 @@ import Surface from './../Surface';
  * The main container
  */
 const Container=styled.div`
+	font-family: monospace;
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
@@ -25,32 +26,51 @@ export default class Game extends React.Component {
 		super(props);
 
 		this.state = {
-			width: '90vw',
-			height: '90vh',
-			type: 'matrix',
-			numberOfElements: 3,
-			elementType: 'char',
-			elementValue: '•',
+			width: '100vw',
+			height: '100vh',
+			grid: { columns: 5, rows: 5 },
+			cellList: {
+				columns: 10,
+				rows: 10,
+				content: [
+					{
+						column: 1,
+						row: 1,
+						text: 'Lynx and Hare',
+					},
+					{
+						column: 10,
+						row: 2,
+						text: 'are',
+					},
+					{
+						column: 10,
+						row: 3,
+						text: 're',
+					},
+					{
+						column: 10,
+						row: 4,
+						text: 'e',
+					},
+				],
+			}
 		}
 	}
 
 	render() {
 		const width = this.state.width;
 		const height = this.state.height;
-		const type = this.state.type;
-		const numberOfElements = this.state.numberOfElements;
-		const elementType = this.state.elementType;
-		const elementValue = this.state.elementValue;
+		const grid = this.state.grid;
+		const cellList = this.state.cellList;
 
 		return (
 			<Container className="game">
 				<Surface
 					width={width}
 					height={height}
-					type={type}
-					numberOfElements={numberOfElements}
-					elementType={elementType}
-					elementValue={elementValue}
+					grid={grid}
+					cellList={cellList}
 				/>
 			</Container>
 		)

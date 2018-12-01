@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import Grid from './../Grid';
 import CellList from './../CellList';
-import ElementList from './../ElementList';
 
 /**
  * The main container
@@ -15,7 +14,7 @@ const Container = styled.section`
 	height: ${props => props.height};
 	position: relative;
 	overflow: hidden;
-	background-color: lightsteelblue;
+	//background-color: lightsteelblue;
 `;
 
 /**
@@ -25,15 +24,8 @@ export default class Surface extends React.Component {
 	render() {
 		const width = this.props.width;
 		const height = this.props.height;
-		const type = this.props.type;
-		const numberOfElements = this.props.numberOfElements;
-
-		const element = {
-			type: this.props.elementType,
-			value: this.props.elementValue,
-			width: this.props.width,
-			height: this.props.height,
-		}
+		const grid = this.props.grid;
+		const cellList = this.props.cellList;
 
 		return (
 			<Container className="surface"
@@ -43,19 +35,13 @@ export default class Surface extends React.Component {
 				<Grid
 					width={width}
 					height={height}
-					columns={10}
-					rows={10}
+					columns={grid.columns}
+					rows={grid.rows}
 				/>
 				<CellList
 					width={width}
 					height={height}
-					columns={20}
-					rows={20}
-				/>
-				<ElementList
-					type={type}
-					numberOfElements={numberOfElements}
-					element={element}
+					cellList={cellList}
 				/>
 			</Container>
 		)

@@ -35,13 +35,13 @@ const Rows = styled.div`
 const Column = styled.div`
 	width: calc(${props => props.width} / ${props => props.columns});
 	height: 100%;
-	border-right: 1px solid white;
+	//border-right: 1px solid white;
 	box-sizing: border-box;
 `;
 
 const Row = styled.div`
 	height: calc(${props => props.height} / ${props => props.rows});
-	border-bottom: 1px solid white;
+	//border-bottom: 1px solid white;
 	box-sizing: border-box;
 `;
 
