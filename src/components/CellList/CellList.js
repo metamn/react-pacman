@@ -29,7 +29,7 @@ const Cell = styled.div`
  * The main class
  */
 export default class CellList extends React.Component {
-	getCellContent(i,j,contents) {
+	getCellContent(i, j, contents) {
 		if (!contents) return;
 
 		let content = contents.filter(c => (c.row == i && j >= c.column));
@@ -38,10 +38,13 @@ export default class CellList extends React.Component {
 
 		let c = content[0];
 		let k = c.column;
-		if (c.text[j-k]) return c.text[j-k];
+		if (c.text[j-k]) return {
+			text: c.text[j-k],
+			class: (c.class) ? c.class : '',
+		}
 	}
 
-	renderCell(i,j) {
+	renderCell(i, j) {
 		const width = this.props.width;
 		const height = this.props.height;
 
@@ -51,8 +54,10 @@ export default class CellList extends React.Component {
 
 		const index = (i-1)*columns + j;
 		const cellContent = this.getCellContent(i, j, cellList.content);
+
 		let className = `cell cell-${index} cell-column-${i} cell-row-${j}`;
-		if (cellContent) className += ' has-content';
+		if (cellContent && cellContent.text) className += ' has-content';
+		if (cellContent && cellContent.class) className += ` ${cellContent.class}`;
 
 		return (
 			<Cell
@@ -63,7 +68,7 @@ export default class CellList extends React.Component {
 				columns={columns}
 				rows={rows}
 				>
-				{cellContent}
+				{cellContent && cellContent.text}
 			</Cell>
 		)
 	}

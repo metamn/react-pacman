@@ -1,11 +1,19 @@
 .surface-1 {
 	.cell {
 		&.has-content {
-			font-size: 2vmax;
+			font-size: 1vmax;
+			text-transform: uppercase;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			//background-color: yellow;
+		}
+
+		&.text-1 {
+			background-color: lightyellow;
+		}
+
+		&.text-2 {
+			background-color: white;
 		}
 	}
 
@@ -13,33 +21,5 @@
 		.row-#{$i} {
 			background-color: darken(aliceblue, $i * 1%);
 		}
-	}
-}
-
-.surface-2 {
-	.cell {
-		&.has-content {
-			font-size: 2vmax;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-	}
-
-	.row-14 {
-		//border: 1px solid;
-		//background-color: blue;
-	}
-
-	.cell-column-28 {
-		&.has-content {
-			color: white;
-			background-color: black;
-			cursor: pointer;
-		}
-	}
-
-	.cell-185 {
-		//background: aliceblue;
 	}
 }

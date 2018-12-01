@@ -11,8 +11,6 @@ const Container=styled.div`
 	font-family: monospace;
 	width: 100%;
 	height: 100%;
-	min-height: 100vh;
-	min-width: 100vw;
 	display: flex;
 	flex-wrap: wrap;
 `;
@@ -36,48 +34,86 @@ export default class Game extends React.Component {
 						column: 1,
 						row: 1,
 						text: 'Lynx and Hare',
+						class: 'text-1',
 					},
 					{
 						column: 10,
 						row: 2,
 						text: 'are',
+						class: 'text-1',
 					},
 					{
 						column: 10,
 						row: 3,
 						text: 're',
+						class: 'text-1',
 					},
 					{
 						column: 10,
 						row: 4,
 						text: 'e',
-					},
-				],
-			},
-			cellList2: {
-				columns: 30,
-				rows: 30,
-				content: [
-					{
-						column: 5,
-						row: 13,
-						text: 'Investing / trading',
+						class: 'text-1',
 					},
 					{
-						column: 5,
-						row: 15,
-						text: 'is the highest stakes',
+						column: 10,
+						row: 6,
+						text: 'r',
+						class: 'text-2',
 					},
 					{
-						column: 5,
-						row: 17,
-						text: 'game in the world',
+						column: 10,
+						row: 7,
+						text: 'e',
+						class: 'text-2',
 					},
 					{
-						column: 5,
-						row: 28,
-						text: 'Select your player',
+						column: 10,
+						row: 8,
+						text: 'y',
+						class: 'text-2',
 					},
+					{
+						column: 10,
+						row: 9,
+						text: 'a',
+						class: 'text-2',
+					},
+					{
+						column: 1,
+						row: 5,
+						text: 'S',
+						class: 'text-2',
+					},
+					{
+						column: 1,
+						row: 6,
+						text: 'e',
+						class: 'text-2',
+					},
+					{
+						column: 1,
+						row: 7,
+						text: 'l',
+						class: 'text-2',
+					},
+					{
+						column: 1,
+						row: 8,
+						text: 'e',
+						class: 'text-2',
+					},
+					{
+						column: 1,
+						row: 9,
+						text: 'c',
+						class: 'text-2',
+					},
+					{
+						column: 1,
+						row: 10,
+						text: 't  your pl',
+						class: 'text-2',
+					}
 				],
 			}
 		}
@@ -88,7 +124,6 @@ export default class Game extends React.Component {
 		const height = this.state.height;
 		const grid = this.state.grid;
 		const cellList1 = this.state.cellList1;
-		const cellList2 = this.state.cellList2;
 
 		return (
 			<Container className="game">
@@ -98,13 +133,6 @@ export default class Game extends React.Component {
 					height = {height}
 					grid = {grid}
 					cellList = {cellList1}
-				/>
-				<Surface
-					name = 'surface-2'
-					width = {width}
-					height = {height}
-					grid = {grid}
-					cellList = {cellList2}
 				/>
 			</Container>
 		)
