@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 import Grid from './../Grid';
+import CellList from './../CellList';
 import ElementList from './../ElementList';
 
 /**
@@ -12,6 +13,7 @@ import ElementList from './../ElementList';
 const Container = styled.section`
 	width: ${props => props.width};
 	height: ${props => props.height};
+	position: relative;
 	overflow: hidden;
 	background-color: lightsteelblue;
 `;
@@ -43,6 +45,12 @@ export default class Surface extends React.Component {
 					height={height}
 					columns={10}
 					rows={10}
+				/>
+				<CellList
+					width={width}
+					height={height}
+					columns={20}
+					rows={20}
 				/>
 				<ElementList
 					type={type}
